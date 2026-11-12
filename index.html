@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Marketing AI tools usage survey" />
+    <title>AI Pulse — Marketing Team Survey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="orb orb-one"></div><div class="orb orb-two"></div>
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <a class="brand" href="#top" aria-label="AI Pulse home"><span class="brand-mark">✦</span> AI PULSE</a>
+        <div class="eyebrow"><span>✦</span> MARKETING INTELLIGENCE</div>
+        <h1 id="page-title">How does AI power<br />your <em>daily flow?</em></h1>
+        <p class="intro-copy">A short pulse check to help us understand the tools that make our marketing team sharper, faster, and more creative.</p>
+        <div class="ai-visual" aria-hidden="true">
+          <div class="visual-glow"></div><span class="spark spark-a">✦</span><span class="spark spark-b">✦</span>
+          <div class="ai-core"><span>✺</span><small>AI</small></div>
+          <div class="float-card card-insight"><span>↗</span><div><b>Smarter insights</b><small>for every campaign</small></div></div>
+          <div class="float-card card-create"><span>✎</span><div><b>Creative flow</b><small>unlocked daily</small></div></div>
+        </div>
+        <div class="trust-row"><span>⌁ Takes ~2 minutes</span><span>◌ Internal only</span><span>↗ No passwords needed</span></div>
+      </section>
+
+      <section class="survey-card" id="top" aria-labelledby="form-title">
+        <div class="card-top"><div><span class="step-label">SURVEY</span><h2 id="form-title">Your AI toolkit</h2></div><div class="progress-wrap"><span id="progressText">0% complete</span><div class="progress-track"><i id="progressBar"></i></div></div></div>
+        <form id="surveyForm" novalidate>
+          <fieldset class="form-section">
+            <legend><span class="number">01</span> About you</legend>
+            <div class="field-grid identity-grid">
+              <label>Your name <b>*</b><input id="userName" name="userName" type="text" maxlength="80" autocomplete="name" placeholder="e.g. Priya Sharma" required /></label>
+              <label>Work email <b>*</b><input id="userEmail" name="userEmail" type="email" maxlength="120" autocomplete="email" placeholder="you@company.com" required /></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend><span class="number">02</span> Your AI usage</legend>
+            <p class="field-hint">Roughly what percentage of your daily work is supported by AI tools?</p>
+            <div class="range-row"><input id="aiUsage" name="aiUsage" type="range" min="0" max="100" value="35" step="5" aria-describedby="usageHelp" /><output id="usageOutput" for="aiUsage">35<span>%</span></output></div>
+            <p class="range-labels" id="usageHelp"><span>Just exploring</span><span>AI-first workflow</span></p>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend><span class="number">03</span> Tools you use <b>*</b> <span class="inline-hint">Select every tool you use day to day.</span></legend>
+            <div class="tools-grid" id="toolsGrid">
+              <label class="tool-chip"><input type="checkbox" name="tools" value="ChatGPT" /><span>✳️</span> ChatGPT <i>✓</i></label>
+              <label class="tool-chip"><input type="checkbox" name="tools" value="Gemini" /><span>✦</span> Gemini <i>✓</i></label>
+              <label class="tool-chip"><input type="checkbox" name="tools" value="Claude" /><span>✺</span> Claude <i>✓</i></label>
+              <label class="tool-chip"><input type="checkbox" name="tools" value="Perplexity" /><span>◎</span> Perplexity <i>✓</i></label>
+              <label class="tool-chip"><input type="checkbox" name="tools" value="Copilot" /><span>⌘</span> Copilot <i>✓</i></label>
+              <label class="tool-chip"><input type="checkbox" name="tools" value="Canva AI" /><span>🎨</span> Canva AI <i>✓</i></label>
+              <label class="tool-chip"><input type="checkbox" name="tools" value="Grammarly" /><span>📝</span> Grammarly <i>✓</i></label>
+              <label class="tool-chip"><input type="checkbox" name="tools" value="Midjourney" /><span>🪄</span> Midjourney <i>✓</i></label>
+              <label class="tool-chip"><input type="checkbox" name="tools" value="Jasper" /><span>✍️</span> Jasper <i>✓</i></label>
+              <label class="tool-chip"><input type="checkbox" name="tools" value="HubSpot AI" /><span>🧡</span> HubSpot AI <i>✓</i></label>
+              <label class="tool-chip"><input type="checkbox" name="tools" value="Google AI tools" /><span>🔎</span> Google AI tools <i>✓</i></label>
+              <label class="tool-chip"><input id="otherToolOption" type="checkbox" name="tools" value="Other" /><span>＋</span> Other <i>✓</i></label>
+            </div>
+            <p class="error-message" id="toolsError" role="alert"></p>
+          </fieldset>
+
+          <fieldset class="form-section">
+            <legend><span class="number">04</span> Tell us more</legend>
+            <div class="plan-row">
+              <label>Tool name <span class="optional">optional</span><input id="otherTools" name="otherTools" type="text" maxlength="200" placeholder="e.g. Notion AI, Writesonic" /></label>
+              <label>Mostly using <span class="optional">optional</span><select id="planType" name="planType"><option value="">Choose one</option><option>Free tools</option><option>Paid tools</option><option>A mix of both</option><option>Not sure</option></select></label>
+              <label class="spend-field" id="spendField" hidden>Amount you pay <b>*</b><span class="money-box"><select id="currency" name="currency" aria-label="Currency"><option value="USD" selected>$</option><option value="EUR">€</option><option value="GBP">£</option><option value="INR">₹</option><option value="AED">د.إ</option><option value="SGD">S$</option><option value="AUD">A$</option><option value="CAD">C$</option><option value="JPY">¥</option></select><input id="paidAmount" name="paidAmount" type="number" min="0" max="99999999" step="0.01" inputmode="decimal" placeholder="0.00" /></span></label>
+            </div>
+            <label class="use-field">Used for <b>*</b><span class="character-count"><span id="characterCount">0</span>/700</span><textarea id="useCases" name="useCases" rows="2" maxlength="700" placeholder="Content, research, design, SEO…"></textarea></label>
+          </fieldset>
+
+          <div class="privacy-note"><span>🔒</span><p>Your responses are used only to understand our team’s workflow and guide future enablement. Please don’t enter customer, campaign, or account-sensitive information.</p></div>
+          <div class="submit-row"><p class="required-note"><b>*</b> Required fields</p><button id="submitButton" type="submit"><span>Share my AI pulse</span><i>→</i></button></div>
+          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+    <div class="success-modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle" hidden><div class="success-box"><span class="success-icon">✦</span><h2 id="successTitle">Pulse received!</h2><p>Thank you for sharing your workflow. Your response has been recorded.</p><button type="button" id="submitAnother">Submit another response</button></div></div>
+    <script src="config.js"></script><script src="app.js"></script>
+  </body>
+</html>
