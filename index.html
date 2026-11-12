@@ -33,8 +33,8 @@
           <fieldset class="form-section">
             <legend><span class="number">01</span> About you</legend>
             <div class="field-grid identity-grid">
-              <label>Your name <b>*</b><input id="userName" name="userName" type="text" maxlength="80" autocomplete="name" placeholder="e.g. Priya Sharma" required /></label>
-              <label>Work email <b>*</b><input id="userEmail" name="userEmail" type="email" maxlength="120" autocomplete="email" placeholder="you@company.com" required /></label>
+              <label class="name-field">Your name <b>*</b><input id="userName" name="userName" type="text" maxlength="80" autocomplete="name" placeholder="e.g. Priya Sharma" required /><span id="nameEmoji" class="name-emoji" hidden aria-hidden="true"></span></label>
+              <label class="email-field">Work email <b>*</b><input id="userEmail" name="userEmail" type="email" maxlength="120" autocomplete="email" placeholder="you@company.com" aria-describedby="emailError" required /><span class="error-message" id="emailError" role="alert"></span></label>
             </div>
           </fieldset>
 
@@ -48,18 +48,11 @@
           <fieldset class="form-section">
             <legend><span class="number">03</span> Tools you use <b>*</b> <span class="inline-hint">Select every tool you use day to day.</span></legend>
             <div class="tools-grid" id="toolsGrid">
-              <label class="tool-chip"><input type="checkbox" name="tools" value="ChatGPT" /><span>✳️</span> ChatGPT <i>✓</i></label>
-              <label class="tool-chip"><input type="checkbox" name="tools" value="Gemini" /><span>✦</span> Gemini <i>✓</i></label>
-              <label class="tool-chip"><input type="checkbox" name="tools" value="Claude" /><span>✺</span> Claude <i>✓</i></label>
-              <label class="tool-chip"><input type="checkbox" name="tools" value="Perplexity" /><span>◎</span> Perplexity <i>✓</i></label>
-              <label class="tool-chip"><input type="checkbox" name="tools" value="Copilot" /><span>⌘</span> Copilot <i>✓</i></label>
-              <label class="tool-chip"><input type="checkbox" name="tools" value="Canva AI" /><span>🎨</span> Canva AI <i>✓</i></label>
-              <label class="tool-chip"><input type="checkbox" name="tools" value="Grammarly" /><span>📝</span> Grammarly <i>✓</i></label>
-              <label class="tool-chip"><input type="checkbox" name="tools" value="Midjourney" /><span>🪄</span> Midjourney <i>✓</i></label>
-              <label class="tool-chip"><input type="checkbox" name="tools" value="Jasper" /><span>✍️</span> Jasper <i>✓</i></label>
-              <label class="tool-chip"><input type="checkbox" name="tools" value="HubSpot AI" /><span>🧡</span> HubSpot AI <i>✓</i></label>
-              <label class="tool-chip"><input type="checkbox" name="tools" value="Google AI tools" /><span>🔎</span> Google AI tools <i>✓</i></label>
-              <label class="tool-chip"><input id="otherToolOption" type="checkbox" name="tools" value="Other" /><span>＋</span> Other <i>✓</i></label>
+                <label class="tool-chip"><input type="checkbox" name="tools" value="ChatGPT" /><span>✳️</span> ChatGPT <i>✓</i></label>
+                <label class="tool-chip"><input type="checkbox" name="tools" value="Gemini" /><span>✦</span> Gemini <i>✓</i></label>
+                <label class="tool-chip"><input type="checkbox" name="tools" value="Claude" /><span>✺</span> Claude <i>✓</i></label>
+                <label class="tool-chip"><input type="checkbox" name="tools" value="Copilot" /><span>⌘</span> Copilot <i>✓</i></label>
+                <label class="tool-chip"><input id="otherToolOption" type="checkbox" name="tools" value="Other" /><span>＋</span> Other <i>✓</i></label>
             </div>
             <p class="error-message" id="toolsError" role="alert"></p>
           </fieldset>
@@ -69,7 +62,7 @@
             <div class="plan-row">
               <label>Tool name <span class="optional">optional</span><input id="otherTools" name="otherTools" type="text" maxlength="200" placeholder="e.g. Notion AI, Writesonic" /></label>
               <label>Mostly using <span class="optional">optional</span><select id="planType" name="planType"><option value="">Choose one</option><option>Free tools</option><option>Paid tools</option><option>A mix of both</option><option>Not sure</option></select></label>
-              <label class="spend-field" id="spendField" hidden>Amount you pay <b>*</b><span class="money-box"><select id="currency" name="currency" aria-label="Currency"><option value="USD" selected>$</option><option value="EUR">€</option><option value="GBP">£</option><option value="INR">₹</option><option value="AED">د.إ</option><option value="SGD">S$</option><option value="AUD">A$</option><option value="CAD">C$</option><option value="JPY">¥</option></select><input id="paidAmount" name="paidAmount" type="number" min="0" max="99999999" step="0.01" inputmode="decimal" placeholder="0.00" /></span></label>
+              <label class="spend-field" id="spendField" hidden>Amount you pay <b>*</b><span class="money-box"><select id="currency" name="currency" aria-label="Currency"><option value="USD" selected>$</option><option value="EUR">€</option><option value="GBP">£</option><option value="INR">₹</option><option value="AED">د.إ</option><option value="SGD">S$</option><option value="AUD">A$</option><option value="CAD">C$</option><option value="JPY">¥</option></select><input id="paidAmount" name="paidAmount" type="number" min="0" max="99999999" step="any" inputmode="decimal" placeholder="0.00" /></span></label>
             </div>
             <label class="use-field">Used for <b>*</b><span class="character-count"><span id="characterCount">0</span>/700</span><textarea id="useCases" name="useCases" rows="2" maxlength="700" placeholder="Content, research, design, SEO…"></textarea></label>
           </fieldset>

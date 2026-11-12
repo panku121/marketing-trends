@@ -21,19 +21,24 @@ function doPost(e) {
     const otherName = clean_(data.otherTools, 200);
     const plan = clean_(data.planType, 50);
     const paid = plan === 'Paid tools';
-    const amount = Number(data.paidAmount);
+    const amountText = clean_(data.paidAmount, 20);
+    const amount = Number(amountText);
     const currency = clean_(data.currency, 8).toUpperCase();
     const choseOther = Array.isArray(data.tools) && data.tools.indexOf('Other') !== -1;
     if (!data || !name || !isEmail_(email) || !Array.isArray(data.tools) || !data.tools.length || (choseOther && !otherName) || !String(data.useCases || '').trim()) {
       return reply_({ ok: false, error: 'Invalid submission.' });
     }
-    if (paid && (!Number.isFinite(amount) || amount < 0 || amount > 99999999 || CURRENCIES.indexOf(currency) === -1)) {
+    if (paid && (!/^\d+(\.\d+)?$/.test(amountText) || !Number.isFinite(amount) || amount > 99999999 || CURRENCIES.indexOf(currency) === -1)) {
       return reply_({ ok: false, error: 'Invalid amount.' });
     }
     const usage = Number(data.aiUsagePercent);
     if (!Number.isFinite(usage) || usage < 0 || usage > 100) return reply_({ ok: false, error: 'Invalid percentage.' });
     const sheet = getSheet_();
     sheet.appendRow([new Date(), name, email, usage, data.tools.join(', '), otherName, plan, clean_(data.useCases, 700), paid ? amount : '', paid ? currency : '']);
+    if (paid) {
+      const decimals = amountText.indexOf('.') === -1 ? 0 : amountText.split('.')[1].length;
+      sheet.getRange(sheet.getLastRow(), 9).setNumberFormat(decimals ? '0.' + '0'.repeat(decimals) : '0');
+    }
     return reply_({ ok: true });
   } catch (error) {
     console.error(error);
